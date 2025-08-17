@@ -1,0 +1,10 @@
+# Node, Python, editor
+node_modules/
+dist/
+build/
+.vscode/
+.env
+.DS_Store
+Thumbs.db
+__pycache__/
+venv/

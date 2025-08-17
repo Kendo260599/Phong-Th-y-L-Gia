@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Phone Analysis</title>
+</head>
+<body>
+    <h1>Test Phone Analysis</h1>
+    
+    <input type="text" id="test-phone" value="0965123456" placeholder="Nhập số điện thoại">
+    <button onclick="testPhoneAnalysis()">Test Phân tích SĐT</button>
+    
+    <div id="test-result"></div>
+
+    <script src="numerology.js"></script>
+    <script src="phone-numerology.js"></script>
+    
+    <script>
+        function testPhoneAnalysis() {
+            try {
+                const phone = document.getElementById('test-phone').value;
+                console.log('Testing phone:', phone);
+                
+                if (typeof analyzePhoneNumerology === 'function') {
+                    const result = analyzePhoneNumerology(phone);
+                    console.log('Analysis result:', result);
+                    document.getElementById('test-result').innerHTML = 
+                        '<pre>' + JSON.stringify(result, null, 2) + '</pre>';
+                } else {
+                    console.error('analyzePhoneNumerology function not found');
+                    document.getElementById('test-result').innerHTML = 
+                        'ERROR: analyzePhoneNumerology function not found';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('test-result').innerHTML = 
+                    'ERROR: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
